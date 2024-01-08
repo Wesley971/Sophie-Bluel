@@ -53,13 +53,16 @@ async function filterCategories() {
     const buttons = document.querySelectorAll(".filters button");
 
     buttons.forEach((button) => {
-        button.addEventListener("click", (event) => {
+        button.addEventListener("click", async (event) => {
             const btnId = event.target.id;
             gallery.innerHTML = "";
 
             if (btnId !== "0") {
                 const projectCategories = projects.filter((project) => project.categoryId == btnId);
                 projectCategories.forEach(createProjectElement);
+            } else {
+                // Afficher tous les projets si le bouton "Tous" est cliqué
+                await showProjects();
             }
         });
     });
