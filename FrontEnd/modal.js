@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     modifySection.addEventListener("click", (event) => {
         // Vérifier si l'élément cliqué est le bouton "Modifier" ou l'icône
-        if (event.target.id === "modifySection" || event.target.classList.contains("fa-pen-to-square")) {
+        if (event.target.id === "modifyButton" || event.target.classList.contains("fa-pen-to-square")) {
             if (isLoggedIn()) {
                 modalContainer.classList.remove("hidden");
             } else {
