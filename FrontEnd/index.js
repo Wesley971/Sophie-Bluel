@@ -82,22 +82,41 @@ init();
 
 function checkLoginStatus() {
     const token = sessionStorage.getItem("token");
-    const userId = sessionStorage.getItem("userId");
+    const loginButton = document.getElementById("loginButton");
+    const logoutButton = document.getElementById("logoutButton");
+    const modifySection = document.getElementById("modifySection");
+    const filters = document.querySelector(".filters");
 
-    if (token && userId) {
+    if (token) {
         // Utilisateur connecté
-        document.getElementById("loginButton").textContent = "logout";
-        document.getElementById("loginButton").addEventListener("click", logout);
+        loginButton.classList.add("hidden");
+        logoutButton.classList.remove("hidden");
 
         // Masquer les filtres
-        filters.classList.add("hidden");
+        if (filters) {
+            filters.classList.add("hidden");
+        }
+
+        // Afficher #modifySection lorsque l'utilisateur est connecté
+        modifySection.classList.remove("hidden");
+
+        // Ajouter un écouteur d'événements pour le bouton de déconnexion
+        logoutButton.addEventListener("click", logout);
     } else {
         // Utilisateur non connecté
-        document.getElementById("loginButton").textContent = "login";
-        document.getElementById("loginButton").addEventListener("click", redirectToLoginPage);
+        loginButton.classList.remove("hidden");
+        logoutButton.classList.add("hidden");
 
         // Afficher les filtres
-        filters.classList.remove("hidden");
+        if (filters) {
+            filters.classList.remove("hidden");
+        }
+
+        // Masquer #modifySection lorsque l'utilisateur n'est pas connecté
+        modifySection.classList.add("hidden");
+
+        // Ajouter un écouteur d'événements pour le bouton de connexion
+        loginButton.addEventListener("click", redirectToLoginPage);
     }
 }
 

@@ -21,9 +21,8 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li id="loginStatus"><a href="#" id="loginButton">login</a></li>
-			<!-- A faire -->
-			<li id="logoutButton">Logout</li>
+			<li id="loginButton">login</li>
+			<li id="logoutButton" class="hidden">logout</li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -41,7 +40,15 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		
+		<div class="project-header">
+			<h2>Mes projets</h2>
+			<div id="modifySection" class="hidden">
+				<div><i class="fa-regular fa-pen-to-square"></i></div>
+				<h2>modifier</h2>
+			</div>
+		</div>
+		
 		<div class="filters">
 			<button id="0">Tous
 
@@ -74,7 +81,7 @@
 </footer>
 <div class="containeModals">
 	<div class="modalProjects"></div>
-	<span><i class="fa-regular fa-pen-to-square"></i></span>
+	<span><i class="fa-solid fa-xmark"></i></span>
 	<h2>Galerie Photo</h2>
 	<div class="projectsModal"></div>
 	<button>Ajouter une photo</button>

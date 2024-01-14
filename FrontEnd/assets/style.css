@@ -159,13 +159,14 @@ button:hover{
 }
 
 /* fin partie modifié */
-
+/* Modification de margin-top et création */
 .gallery {
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
+	margin-top: 10%;
 }
 
 .gallery img {
@@ -279,8 +280,8 @@ margin: auto;
 .filters.hidden {
     visibility: hidden;
 }
-.hiddenLogout{
-	display: none;
+.hidden {
+    display: none;
 }
 .overlay {
     position: fixed;
@@ -296,3 +297,91 @@ margin: auto;
     z-index: 999; /* Assure que l'overlay est au-dessus de tout le reste */
 }
 
+
+/* Modification pour l'administrateur */
+
+#modifySection {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+#modifySection.hidden {
+    display: none;
+}
+
+#modifySection h2 {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Work Sans';
+    color: black;
+    margin-left: 10px;
+	margin-bottom: 0;
+}
+
+.fa-pen-to-square {
+    padding-bottom: 5px;
+}
+
+.project-header {
+	
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#portfolio .project-header h2{
+	margin-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+/* Modale */
+
+/* .containeModals { */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+	justify-content: space-around;
+    align-items: center;
+	width: 50%;
+	height: 50%;
+}
+
+.containeModals button {
+	
+	background-color: #1D6154;
+	color: white;
+}
+.modalProjects {
+	position: relative;
+	
+}
+
+.fa-xmark {
+position: absolute;
+top: 20px;
+right: 20px;
+
+}
+
+
+.projectsModal {
+    /* Ajoute les styles nécessaires pour la partie "projectsModal" */
+}
+
+/* Ajoute d'autres styles selon tes besoins */
