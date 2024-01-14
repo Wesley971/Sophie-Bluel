@@ -344,7 +344,7 @@ margin: auto;
 
 /* Modale */
 
-/* .containeModals { */
+.containeModals {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -356,32 +356,41 @@ margin: auto;
     z-index: 2;
     display: flex;
     flex-direction: column;
-	justify-content: space-around;
     align-items: center;
-	width: 50%;
-	height: 50%;
+    width: 50%;
+    height: 50%;
+    display: none; /* Masquer initialement la modal */
 }
 
 .containeModals button {
-	
-	background-color: #1D6154;
-	color: white;
-}
-.modalProjects {
-	position: relative;
-	
+    background-color: #1D6154;
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .fa-xmark {
-position: absolute;
-top: 20px;
-right: 20px;
-
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
 }
 
 
 .projectsModal {
-    /* Ajoute les styles nécessaires pour la partie "projectsModal" */
-}
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	
+.projectsModal img {
+		width: 100%;
+		height: auto;
+		margin-bottom: 10px;
+	}
 
-/* Ajoute d'autres styles selon tes besoins */
+
+/* Ajoutez d'autres styles selon vos besoins */
+
+
