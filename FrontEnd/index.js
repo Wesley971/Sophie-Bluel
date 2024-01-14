@@ -77,3 +77,42 @@ async function init() {
 
 // Appel de la fonction d'initialisation
 init();
+
+// Si l'utilisateur est connecté
+
+function checkLoginStatus() {
+    const token = sessionStorage.getItem("token");
+    const userId = sessionStorage.getItem("userId");
+
+    if (token && userId) {
+        // Utilisateur connecté
+        document.getElementById("loginButton").textContent = "logout";
+        document.getElementById("loginButton").addEventListener("click", logout);
+
+        // Masquer les filtres
+        filters.classList.add("hidden");
+    } else {
+        // Utilisateur non connecté
+        document.getElementById("loginButton").textContent = "login";
+        document.getElementById("loginButton").addEventListener("click", redirectToLoginPage);
+
+        // Afficher les filtres
+        filters.classList.remove("hidden");
+    }
+}
+
+function redirectToLoginPage() {
+    window.location.href = "login.html";
+}
+
+function logout() {
+    // Supprimer les informations de connexion du sessionStorage
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("userId");
+
+    // Redirection vers la page d'accueil
+    window.location.href = "index.html";
+}
+
+// Appeler cette fonction au chargement de la page
+checkLoginStatus();

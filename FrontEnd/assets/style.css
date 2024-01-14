@@ -58,8 +58,9 @@ header {
 	justify-content: space-between;
 	margin: 50px 0
 }
+/* Mofidié par moi  */
 section {
-	margin: 50px 0
+	margin: 90px 0
 }
 
 h1{
@@ -275,3 +276,23 @@ margin: auto;
 		font-size: 14px;
 		text-decoration: underline;
 }
+.filters.hidden {
+    visibility: hidden;
+}
+.hiddenLogout{
+	display: none;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Couleur noire avec une certaine opacité */
+    color: white; /* Couleur du texte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Assure que l'overlay est au-dessus de tout le reste */
+}
+

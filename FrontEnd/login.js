@@ -24,7 +24,7 @@ form.addEventListener("submit", (event) => {
         password: userPassword,
      
     };
-        
+    
     // Envoi de la requête à l'API avec fetch
     fetch("http://localhost:5678/api/users/login", {
         method: "POST",
@@ -49,11 +49,11 @@ form.addEventListener("submit", (event) => {
         const userToken = data.token;
 
         // Stockage des informations dans sessionStorage
-        window.sessionStorage.setItem("token", userToken);
-        window.sessionStorage.setItem("userId", userId);
+        sessionStorage.setItem("token", userToken);
+        sessionStorage.setItem("userId", userId);
 
         // Redirection vers la page index.html)
-        window.location.href = "index.html";
+        location.href = "index.html";
     })
     .catch((error) => {
         // Gestion des erreurs lors de la requête ou du traitement
@@ -61,3 +61,4 @@ form.addEventListener("submit", (event) => {
         errorMessage.textContent = "Une erreur est survenue lors de la connexion.";
     });
 });
+
