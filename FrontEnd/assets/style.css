@@ -359,6 +359,7 @@ margin: auto;
     align-items: center;
     width: 50%;
     height: 50%;
+    display: none; /* Masquer initialement la modal */
 }
 
 .containeModals button {
