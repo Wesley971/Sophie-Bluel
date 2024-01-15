@@ -317,9 +317,11 @@ margin: auto;
     color: black;
     margin-left: 10px;
 	margin-bottom: 0;
+	cursor: pointer;
 }
 
 .fa-pen-to-square {
+	cursor: pointer;
     padding-bottom: 5px;
 }
 
@@ -351,15 +353,18 @@ margin: auto;
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid gray;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
-    height: 50%;
     display: none; /* Masquer initialement la modal */
+    justify-content: space-evenly;
+    padding: 110px;
+    width: 540px; /* Ajoutez la largeur que vous souhaitez */
+    height: 570px; /* Ajoutez la hauteur que vous souhaitez */
 }
 
 .containeModals button {
@@ -368,29 +373,88 @@ margin: auto;
     margin-top: 10px;
     padding: 10px;
     cursor: pointer;
+    position: absolute;
+    bottom: 60px;
+    width: 50%;
+    border: none; /* Retirez la bordure */
+}
+
+.containeModals h2 {
+    position: absolute;
+    top: 90px;
+    color: black;
+    font-weight: 400;
+    font-family: 'Work Sans';
 }
 
 .fa-xmark {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 30px;
+    right: 30px;
     cursor: pointer;
+    font-size: 30px;
 }
 
+/* Style pour la galerie d'images dans la modal */
+.projectsModal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    top: -60px;
+    right: -20px;
+}
+
+.projectsModal img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Style pour l'arrière-plan grisé (overlay) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: none;
+}
+/* Intérieur de la modale */
 
 .projectsModal {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-	}
-	
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.projectsModal figure {
+    margin: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
 .projectsModal img {
-		width: 100%;
-		height: auto;
-		margin-bottom: 10px;
-	}
+    width: 100%; 
+    max-height: 100px; /* Ajustez la hauteur maximale selon vos préférences */
+    object-fit: cover; /* Pour maintenir le rapport hauteur/largeur et remplir l'espace disponible */
+}
 
+.projectsModal span {
+    position: relative;
+    display: block;
+}
 
-/* Ajoutez d'autres styles selon vos besoins */
-
+.projectsModal i {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white ;
+	background-color: black;
+	padding: 5px;
+}
 
