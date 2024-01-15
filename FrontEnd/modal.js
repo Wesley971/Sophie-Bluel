@@ -10,19 +10,25 @@ document.addEventListener("DOMContentLoaded", function () {
         return !!token; // Convertit en boolean (true si le token existe, false sinon)
     }
 
-    modifySection.addEventListener("click", (event) => {
-        // Vérifier si l'élément cliqué est le bouton "Modifier" ou l'icône
-        if (event.target.id === "modifyButton" || event.target.classList.contains("fa-pen-to-square")) {
-            if (isLoggedIn()) {
-                modalContainer.classList.remove("hidden");
-            } else {
-                redirectToLoginPage();
-            }
+    // Fonction pour ouvrir la modale
+    function openModal() {
+        if (isLoggedIn()) {
+            modalContainer.style.display = "flex"; // Utilisez "flex" pour afficher la modale
+        } else {
+            redirectToLoginPage();
         }
-    });
+    }
+
+    modifySection.addEventListener("click", openModal);
+
+    // Ajoutez un écouteur d'événements pour l'icône
+    const modifyIcon = document.querySelector(".fa-pen-to-square");
+    if (modifyIcon) {
+        modifyIcon.addEventListener("click", openModal);
+    }
 
     closeModalButton.addEventListener("click", () => {
-        modalContainer.classList.add("hidden");
+        modalContainer.style.display = "none"; // Utilisez "none" pour masquer la modale
     });
 
     addPhotoButton.addEventListener("click", () => {
