@@ -50,8 +50,25 @@ document.addEventListener("DOMContentLoaded", function () {
         closeModal();
     });
  
+    function addProject() {
+        // Ajoutez ici le code pour gérer l'ajout de photo
+        // Par exemple, afficher une autre modal pour ajouter une photo, etc.
+        const addPhotoModal = document.getElementById("addPhotoButton");
+        addPhotoModal.style.display = "flex";  // Affiche la modal pour ajouter une photo
+    
+        // Assurez-vous de traiter l'ajout côté serveur également.
+        console.log("Ajout de projet en cours...");
+    
+        // ... Ajoutez le code nécessaire pour l'ajout de projet ...
+    
+        // Mettez à jour l'affichage des projets après l'ajout
+        displayProjectsModal();
+    }
+    
+    
     addPhotoButton.addEventListener("click", () => {
         if (isLoggedIn()) {
+            addProject()
             // Ajoutez ici le code pour gérer l'ajout de photo
             // Peut-être une autre modal pour ajouter une photo, etc.
         } else {
