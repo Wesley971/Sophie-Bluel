@@ -1,5 +1,6 @@
+// Attendez que le contenu du DOM soit complètement chargé
 document.addEventListener("DOMContentLoaded", function () {
-    // Variables globales
+    // Sélection des éléments du DOM nécessaires
     const modifySection = document.getElementById("modifySection");
     const closeModalButton = document.getElementById("closeModalButton");
     const addPhotoButton = document.getElementById("addPhotoButton");
@@ -8,16 +9,20 @@ document.addEventListener("DOMContentLoaded", function () {
  
     // Fonction pour vérifier si l'utilisateur est connecté
     function isLoggedIn() {
+        // Récupération du token de session
         const token = sessionStorage.getItem("token");
+        // Retourne true si le token existe, false sinon
         return !!token;
     }
  
     // Fonction pour ouvrir la modale
     function openModal() {
+        // Si l'utilisateur est connecté, affiche la modale
         if (isLoggedIn()) {
             modalContainer.style.display = "flex";
             document.querySelector('.overlay').style.display = 'block';
         } else {
+            // Sinon, redirige vers la page de connexion
             redirectToLoginPage();
         }
     }
@@ -55,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
  });
  
+ // Fonction pour afficher la modale des projets
  async function displayProjectsModal() {
     const projectsModal = document.querySelector(".projectsModal");
     projectsModal.innerHTML = "";
@@ -84,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
  
  displayProjectsModal();
  
+ // Fonction pour supprimer un projet
  function deleteProject(id) {
     const init = {
         method: "DELETE",
@@ -109,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
  }
  
+ // Fonction pour ajouter des écouteurs d'événements aux boutons de suppression
  function deleteProjects() {
     const deleteAll = document.querySelectorAll(".fa-trash-can");
     deleteAll.forEach(deleteItem => {
