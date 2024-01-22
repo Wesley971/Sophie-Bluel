@@ -458,3 +458,25 @@ margin: auto;
 	padding: 5px;
 }
 
+/* Modale Photo */
+
+.addPhotoModal{
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none; /* Masquer initialement la modal */
+    justify-content: space-evenly;
+    padding: 110px;
+    width: 540px; 
+    height: 570px; 
+}
