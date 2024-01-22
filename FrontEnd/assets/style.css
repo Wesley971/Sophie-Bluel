@@ -392,7 +392,8 @@ margin: auto;
     top: 30px;
     right: 30px;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 25px;
+	color: black;
 }
 
 /* Style pour la galerie d'images dans la modal */
@@ -459,6 +460,14 @@ margin: auto;
 }
 
 /* Modale Photo */
+.fa-arrow-left{
+	position: absolute;
+    top: 30px;
+    left: 30px;
+    cursor: pointer;
+    font-size: 30px;
+	color: black;
+}
 
 .addPhotoModal{
 	position: fixed;
@@ -479,4 +488,91 @@ margin: auto;
     padding: 110px;
     width: 540px; 
     height: 570px; 
+}
+.addPhotoModal h2{
+	position: absolute;
+    top: 70px;
+    color: black;
+    font-weight: 400;
+    font-family: 'Work Sans';
+	font-size: 32px;
+}
+
+.previewBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #E8F1F6;
+    padding: 30px 150px 15px 150px;
+    margin-bottom: 20px;
+	position: relative;
+    bottom: 5%;
+	color: black;
+	font-family: 'Work Sans';
+}
+.previewBox img {
+    max-width: 50%; /* L'image s'adapte à la largeur de la boîte */
+    cursor: pointer; /* Le curseur change en main lorsque l'utilisateur passe la souris sur l'image */
+}
+
+.previewBox input[type="file"] {
+    display: none; /* Cache le input de type file */
+}
+
+.previewBox label {
+	color: #306685;
+	background-color:#CBD6DC;
+	padding: 10px 35px 10px 35px ;
+	border-radius: 25px;
+	font-weight: 500;
+}
+.previewBox h4{
+	margin-top: 5px;
+	font-size: 10px;
+	color: #444444;
+}
+.fa-image{
+	color: #B9C5CC;
+	font-size: 85px;
+    margin-bottom: 5px;
+}
+
+form:invalid #validateButton {
+    background-color: grey;
+}
+
+form:valid #validateButton {
+    background-color: green;
+    pointer-events: auto;
+    cursor: pointer;
+}
+#validateButton {
+    display: block;
+    width: 50%; /* Ajustez cette valeur selon vos besoins */
+}
+
+/* formulaire */
+
+
+input[type="text"], select {
+	width: 100%;
+    padding: 20px;
+    border: 0px solid #ccc;
+    box-sizing: border-box;
+    margin-top: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	
+}
+
+.firstForm, .secondForm {
+    margin: 20px;
+	color: black;
+    font-weight: 400;
+    width: 90%;
+	font-weight: 400;
+}
+.formLabel{
+	font-size: 20px;
+	margin-bottom: 20px;
 }

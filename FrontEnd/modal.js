@@ -60,9 +60,48 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             redirectToLoginPage();
         }
-    });
+    });    
  });
+
+ document.getElementById('previewImage').addEventListener('click', function() {
+    document.getElementById('uploadImage').click();
+});
+
+
+
+ fetch('http://localhost:5678/api/categories/')
+    .then(response => response.json())
+    .then(data => {
+        const select = document.getElementById("category");
+        data.forEach((cat) => {
+            const opt = document.createElement('option');
+            opt.value = cat.id;
+            opt.innerHTML = cat.name;
+            select.appendChild(opt);
+        });
+    })
+    .catch(error => console.error('Erreur:', error));
+
  
+
+    document.getElementById('imageTitle').addEventListener('input', validateForm);
+    document.getElementById('category').addEventListener('change', validateForm);
+    document.querySelector('input[type="file"]').addEventListener('change', validateForm);
+    
+    function validateForm() {
+        const title = document.getElementById('imageTitle').value;
+        const category = document.getElementById('category').value;
+        const fileInput = document.querySelector('input[type="file"]');
+        
+        if (title && category && fileInput.files.length > 0) {
+            document.getElementById('validateButton').disabled = false;
+            document.getElementById('validateButton').style.backgroundColor = 'green';
+        } else {
+            document.getElementById('validateButton').disabled = true;
+            document.getElementById('validateButton').style.backgroundColor = 'grey';
+        }
+    }
+    
  // Fonction pour afficher la modale des projets
  async function displayProjectsModal() {
     const projectsModal = document.querySelector(".projectsModal");
