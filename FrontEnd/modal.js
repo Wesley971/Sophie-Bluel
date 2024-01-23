@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sélection des éléments du DOM nécessaires
     const modifySection = document.getElementById("modifySection");
     const closeModalButton = document.getElementById("closeModalButton");
+    const closeModalButtonSecondModal = document.querySelector('.addPhotoModal #closeModalButton');
     const addPhotoButton = document.getElementById("addPhotoButton");
     const modalContainer = document.querySelector(".containeModals");
     const projectsModal = document.querySelector(".projectsModal");
@@ -49,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
     closeModalButton.addEventListener("click", () => {
         closeModal();
     });
+
+    closeModalButtonSecondModal.addEventListener('click', function () {
+    closeModal();
+    });
+
  
 
     addPhotoButton.addEventListener("click", () => {
@@ -63,13 +69,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });    
  });
 
- document.getElementById('previewImage').addEventListener('click', function() {
+ document.getElementById('previewImage').addEventListener('click', function () {
     document.getElementById('uploadImage').click();
 });
 
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
 
+        reader.onload = function (e) {
+            document.querySelector('.addPhotoModal img').src = e.target.result;
+            document.querySelector('.previewBox h4').classList.add('hide');
+            document.querySelector('.previewBox i').classList.add('hide');
+            document.querySelector('.previewBox label').classList.add('hide');
+        }
 
- fetch('http://localhost:5678/api/categories/')
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+// Supprimez l'un des écouteurs d'événements en double
+document.querySelector('.addPhotoModal input[type="file"]').addEventListener('change', function () {
+    readURL(this);
+    document.querySelector('.previewBox h4').classList.remove('hide');
+    document.querySelector('.previewBox i').classList.remove('hide');
+    document.querySelector('.previewBox label').classList.remove('hide');
+});
+
+fetch('http://localhost:5678/api/categories/')
     .then(response => response.json())
     .then(data => {
         const select = document.getElementById("category");
@@ -80,27 +107,27 @@ document.addEventListener("DOMContentLoaded", function () {
             select.appendChild(opt);
         });
     })
-    .catch(error => console.error('Erreur:', error));
+    .catch(error => console.error('Erreur :', error));
 
- 
+document.getElementById('imageTitle').addEventListener('input', validateForm);
+document.getElementById('category').addEventListener('change', validateForm);
+document.querySelector('.addPhotoModal input[type="file"]').addEventListener('change', validateForm);
 
-    document.getElementById('imageTitle').addEventListener('input', validateForm);
-    document.getElementById('category').addEventListener('change', validateForm);
-    document.querySelector('input[type="file"]').addEventListener('change', validateForm);
-    
-    function validateForm() {
-        const title = document.getElementById('imageTitle').value;
-        const category = document.getElementById('category').value;
-        const fileInput = document.querySelector('input[type="file"]');
-        
-        if (title && category && fileInput.files.length > 0) {
-            document.getElementById('validateButton').disabled = false;
-            document.getElementById('validateButton').style.backgroundColor = 'green';
-        } else {
-            document.getElementById('validateButton').disabled = true;
-            document.getElementById('validateButton').style.backgroundColor = 'grey';
-        }
+function validateForm() {
+    const title = document.getElementById('imageTitle').value;
+    const category = document.getElementById('category').value;
+    const fileInput = document.querySelector('.addPhotoModal input[type="file"]'); // Corrigez le sélecteur de l'input de fichier
+
+    if (title && category && fileInput.files.length > 0) {
+        document.getElementById('validateButton').disabled = false;
+        document.getElementById('validateButton').style.backgroundColor = 'green';
+    } else {
+        document.getElementById('validateButton').disabled = true;
+        document.getElementById('validateButton').style.backgroundColor = 'grey';
     }
+}
+
+
     
  // Fonction pour afficher la modale des projets
  async function displayProjectsModal() {
@@ -168,4 +195,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
  }
- 
+ document.getElementById('returnModal').addEventListener('click', function () {
+    const containerModals = document.querySelector('.containeModals');
+    const addPhotoModal = document.querySelector('.addPhotoModal');
+
+    // Affiche la première modal et cache la deuxième modal
+    containerModals.style.display = 'flex';
+    addPhotoModal.style.display = 'none';
+    document.querySelector('.overlay').style.display = 'block';
+});

@@ -400,7 +400,7 @@ margin: auto;
     flex-wrap: wrap;
     justify-content: space-around;
     position: relative;
-    top: -60px;
+    top: -155px;
     right: -20px;
 }
 
@@ -468,7 +468,7 @@ margin: auto;
 }
 
 .addPhotoModal{
-	position: fixed;
+	position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -506,6 +506,8 @@ margin: auto;
     bottom: 0%;
 	color: black;
 	font-family: 'Work Sans';
+	border-radius: 5px;
+	position: relative;
 }
 .previewBox img {
     max-width: 50%; /* L'image s'adapte à la largeur de la boîte */
@@ -533,20 +535,16 @@ margin: auto;
 	font-size: 85px;
     margin-bottom: 5px;
 }
+#previewImage {
+	object-fit: contain;
 
-form:invalid #validateButton {
-    background-color: grey;
+}
+.hide {
+    display: none;
 }
 
-form:valid #validateButton {
-    background-color: green;
-    pointer-events: auto;
-    cursor: pointer;
-}
-#validateButton {
-    display: block;
-    width: 50%; /* Ajustez cette valeur selon vos besoins */
-}
+
+
 
 /* formulaire */
 
@@ -558,7 +556,10 @@ input[type="text"], select {
     box-sizing: border-box;
     margin-top: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-	
+	font-size: 18px;
+	font-weight: 400;
+	font-family: 'Work Sans';
+	color: #444444;
 }
 
 .firstForm, .secondForm {
@@ -566,6 +567,11 @@ input[type="text"], select {
 	color: black;
     font-weight: 400;
     width: 90%;
+	font-family: 'Work Sans';
+	color: #3D3D3D;
+	position: relative;
+	top: 25px;
+
 	 
 }
 .formLabel{
@@ -575,9 +581,29 @@ input[type="text"], select {
 }
 
 #category {
-    padding-right: 20px;
+    border-right: white 30px solid ;
+
 }
 
+.secondForm{
+	padding-bottom: 55px;
+	border-bottom: #B3B3B3 solid 1px;
+}
 
+/* Boutton pour valider */
 
+form:invalid #validateButton {
+    background-color: grey;
+}
 
+form:valid #validateButton {
+    background-color: green;
+    pointer-events: auto;
+    cursor: pointer;
+}
+#validateButton {
+	position: relative;
+	top: 45px;
+    display: block;
+    width: 50%; /* Ajustez cette valeur selon vos besoins */
+}
