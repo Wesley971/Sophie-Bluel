@@ -100,11 +100,12 @@ function validateForm() {
 
     if (title && category && fileInput.files.length > 0) { // Si le titre, la catégorie et le fichier de l'image existent
         document.getElementById('validateButton').disabled = false; // Activer le bouton de validation
-        document.getElementById('validateButton').style.backgroundColor = 'green'; // Changer la couleur de fond du bouton de validation en vert
+        document.getElementById('validateButton').style.backgroundColor = '#1D6154'; // Changer la couleur de fond du bouton de validation en vert
 
     } else { // Sinon
         document.getElementById('validateButton').disabled = true; // Désactiver le bouton de validation
-        document.getElementById('validateButton').style.backgroundColor = 'grey'; // Changer la couleur de fond du bouton de validation en gris
+        document.getElementById('validateButton').style.backgroundColor = 'darkgray';
+        document.getElementById('validateButton').style.color = 'white'; // Changer la couleur de fond du bouton de validation en gris
     }
 }
 

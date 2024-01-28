@@ -54,5 +54,8 @@ form.addEventListener("submit", (event) => {
 
       // Affichage d'un message d'erreur dans le DOM
       errorMessage.textContent = "Une erreur est survenue lors de la connexion.";
+
+        // Affichage de mon message d'erreur en couleur rouge
+      errorMessage.style.color = "red";
   });
 });

@@ -303,13 +303,19 @@ margin: auto;
 /* Mode editon */
 
 .editionMode{
-	z-index: 3;
-	display: flex;
-	justify-content: center;
-	padding: 25px;
-	color: white;
-	background: black;
+    
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    color: white;
+    background: black;
+}
 
+
+
+
+.editionMode.hidden{
+	display: none;
 }
 
 .editionMode h2{

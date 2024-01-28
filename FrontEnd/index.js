@@ -94,6 +94,12 @@ function checkLoginStatus() {
 
        modifySection.classList.remove("hidden");
        logoutButton.addEventListener("click", logout);
+
+       // Affiche le div si l'utilisateur est connecté
+       let editionModeDiv = document.querySelector('.editionMode');
+       if (editionModeDiv) {
+           editionModeDiv.classList.remove("hidden"); // Supprime la classe 'hidden'
+       }
    } else {
        loginButton.classList.remove("hidden");
        logoutButton.classList.add("hidden");
@@ -104,8 +110,16 @@ function checkLoginStatus() {
 
        modifySection.classList.add("hidden");
        loginButton.addEventListener("click", redirectToLoginPage);
+
+       // Cache le div si l'utilisateur n'est pas connecté
+       let editionModeDiv = document.querySelector('.editionMode');
+       if (editionModeDiv) {
+           editionModeDiv.classList.add("hidden"); // Ajoute la classe 'hidden'
+       }
    }
 }
+
+
 
 // Redirige l'utilisateur vers la page de connexion
 function redirectToLoginPage() {
