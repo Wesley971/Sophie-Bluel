@@ -298,7 +298,31 @@ margin: auto;
 }
 
 
-/* Modification pour l'administrateur */
+/* Modification pour le mode édition */
+
+/* Mode editon */
+
+.editionMode{
+	z-index: 3;
+	display: flex;
+	justify-content: center;
+	padding: 25px;
+	color: white;
+	background: black;
+
+}
+
+.editionMode h2{
+	font-family: 'Work Sans';
+	font-weight: 400;
+	font-size: 18px;
+	color: white;
+	margin-left: 10px;
+}
+.fa-pen-to-square{
+	padding-top: 3px;
+}
+
 
 #modifySection {
     display: flex;
