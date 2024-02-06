@@ -94,6 +94,7 @@ nav ul {
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
+	cursor: pointer;
 }
 
 li:hover {
@@ -389,9 +390,8 @@ margin: auto;
     flex-direction: column;
     align-items: center;
     display: none; /* Masquer initialement la modal */
-    justify-content: space-evenly;
     padding: 110px;
-    width: 540px; /* Ajoutez la largeur que vous souhaitez */
+    width: 500px; /* Ajoutez la largeur que vous souhaitez */
     height: 570px; /* Ajoutez la hauteur que vous souhaitez */
 }
 
@@ -430,8 +430,10 @@ margin: auto;
     flex-wrap: wrap;
     justify-content: space-around;
     position: relative;
-    top: -155px;
-    right: -20px;
+    top: 80px;
+	padding-left: 35px;
+	padding-bottom: 80px;
+    border-bottom: solid 1px black;
 }
 
 .projectsModal img {
@@ -460,7 +462,7 @@ margin: auto;
 }
 
 .projectsModal figure {
-    margin: 10px;
+    margin: 0px 5px 10px 5px;
     text-align: center;
     box-sizing: border-box;
 }
