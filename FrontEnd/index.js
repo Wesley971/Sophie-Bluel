@@ -1,7 +1,7 @@
-// Sélectionne l'élément avec la classe 'gallery' du DOM et le stocke dans la variable 'gallery'
+// Sélectionne l'élément avec la classe 'gallery' du DOM 
 const gallery = document.querySelector(".gallery");
 
-// Sélectionne l'élément avec la classe 'filters' du DOM et le stocke dans la variable 'filters'
+// Sélectionne l'élément avec la classe 'filters' du DOM 
 const filters = document.querySelector(".filters");
 
 // Définit une fonction asynchrone pour charger les projets depuis l'API
