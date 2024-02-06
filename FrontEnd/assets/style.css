@@ -383,7 +383,6 @@ margin: auto;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    border: 1px solid gray;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 2;
@@ -433,7 +432,7 @@ margin: auto;
     top: 80px;
 	padding-left: 35px;
 	padding-bottom: 80px;
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px #B3B3B3;
 }
 
 .projectsModal img {
@@ -514,7 +513,7 @@ margin: auto;
     display: none; /* Masquer initialement la modal */
     justify-content: space-evenly;
     padding: 110px;
-    width: 540px; 
+    width: 500px; 
     height: 570px; 
 }
 .addPhotoModal h2{
