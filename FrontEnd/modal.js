@@ -79,10 +79,6 @@ function readURL(input) {
             document.querySelector('.previewBox h4').classList.add('hide');
             document.querySelector('.previewBox i').classList.add('hide');
             document.querySelector('.previewBox label').classList.add('hide');
-            
-            // Ne cachez pas la modale ici
-            // modalContainer.style.display = "none";
-            // document.querySelector('.overlay').style.display = 'none';
 
             // Valider le formulaire après avoir chargé l'image
             validateForm();
@@ -200,55 +196,65 @@ async function displayProjectsModal() {
 
 displayProjectsModal(); // Appeler la fonction pour afficher la modale des projets
 
-// Fonction pour supprimer un projet
+// Définition d'une fonction pour supprimer un projet par son identifiant
 function deleteProject(id) {
+    // Initialisation des options de requête incluant la méthode et les en-têtes
     const init = {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json", "Authorization": "Bearer " + sessionStorage.getItem("token") } 
+        method: "DELETE", // Utilisation de la méthode HTTP DELETE
+        headers: {
+            "Content-Type": "application/json", // Définition du type de contenu en JSON
+            "Authorization": "Bearer " + sessionStorage.getItem("token") // Récupération du token de stockage et utilisation pour l'autorisation
+        }
     };
     
-    fetch(`http://localhost:5678/api/works/${id}`, init) // Envoyer une requête DELETE à l'API
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("La suppression n'a pas fonctionné !");
+    // Envoi d'une requête DELETE à l'URL de l'API avec l'ID du projet donné
+    fetch(`http://localhost:5678/api/works/${id}`, init)
+    .then(response => { // Gestion de la réponse
+        if (!response.ok) { // Vérification si la réponse est correcte (statut  2xx)
+            throw new Error("La suppression n'a pas fonctionné !"); // Lancer une erreur si la suppression a échoué
         }
-        return response.json();
+        return response.json(); // Analyse du corps de la réponse en JSON
     })
-    .then(data => {
-        console.log("La suppression a réussi. Voici les données :", data);
-        // Mettre à jour les actions nécessaires après la suppression du projet
-        // Par exemple, réafficher la modale ou mettre à jour l'affichage des projets
+    .then(data => { // Gestion des données JSON analysées
+        console.log("La suppression a réussi. Voici les données :", data); // Affichage du message de succès avec les données
+        // Effectuer des mises à jour de l'interface utilisateur après la suppression, comme rafraîchir la liste des projets
         displayProjectsModal();
         loadProjects();
     })
-    .catch(error => {
-        console.error("Erreur lors de la suppression :", error);
+    .catch(error => { // Gestion des erreurs éventuelles lors de la requête ou du traitement
+        console.error("Erreur lors de la suppression :", error); // Affichage de l'erreur
     });
 }
 
-// Fonction pour ajouter des écouteurs d'événements aux boutons de suppression
+// Définition d'une fonction pour ajouter des écouteurs d'événements aux éléments avec la classe .fa-trash-can
 function deleteProjects() {
+    // Sélection de tous les éléments avec la classe .fa-trash-can
     const deleteAll = document.querySelectorAll(".fa-trash-can");
+    // Boucle sur chaque élément sélectionné
     deleteAll.forEach(deleteItem => {
+        // Ajout d'un écouteur d'événements de clic à l'élément actuel
         deleteItem.addEventListener("click", (event) => {
+            // Récupération de l'identifiant de l'élément cliqué
             const id = deleteItem.id;
+            // Appel de la fonction deleteProject avec l'ID récupéré
             deleteProject(id);
         });
     });
 }
-// Sélectionnez l'élément qui doit retourner à la première modale
+
+// Sélection de l'élément avec l'ID 'returnModal' pour gérer le retour à la première fenêtre modale
 const returnToFirstModal = document.getElementById('returnModal');
 
-// Ajoutez un écouteur d'événements pour le clic sur cet élément
+// Ajout d'un écouteur d'événements de clic à l'élément 'returnModal'
 returnToFirstModal.addEventListener('click', function() {
-    // Cachez la deuxième modale
+    // Cacher la deuxième fenêtre modale en changeant son style d'affichage en 'none'
     document.querySelector('.addPhotoModal').style.display = "none";
 
-    // Affichez la première modale
+    // Afficher la première fenêtre modale en changeant son style d'affichage en 'flex'
     document.querySelector('.containeModals').style.display = "flex";
 });
 
+// Appel de la fonction deleteProjects pour initialiser la fonctionnalité de suppression pour tous les boutons de suppression
+deleteProjects();
 
-
-deleteProjects(); // Ajouter cet appel pour initialiser les événements de suppression 
  
