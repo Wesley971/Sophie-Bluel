@@ -58,8 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isLoggedIn()) {
             const photoModal = document.querySelector(".addPhotoModal") // Sélectionne la modale d'ajout de photo
             photoModal.style.display = "flex" // Affiche la modale d'ajout de photo
-            // Ajouter ici le code pour gérer l'ajout de photo
-            // Peut-être une autre modal pour ajouter une photo, etc.
         } else {
             redirectToLoginPage(); // Si l'utilisateur n'est pas connecté, rediriger vers la page de connexion
         }

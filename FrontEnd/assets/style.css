@@ -531,17 +531,15 @@ margin: auto;
     align-items: center;
     justify-content: center;
     background-color: #E8F1F6;
-    padding: 30px 155px 15px 155px;
+    padding: 0px 155px 0px 155px;
     margin-bottom: 20px;
-	position: relative;
-    bottom: 0%;
 	color: black;
 	font-family: 'Work Sans';
 	border-radius: 5px;
 	position: relative;
 }
 .previewBox img {
-    max-width: 50%; /* L'image s'adapte à la largeur de la boîte */
+    max-width: 70%; /* L'image s'adapte à la largeur de la boîte */
     cursor: pointer; /* Le curseur change en main lorsque l'utilisateur passe la souris sur l'image */
 }
 
