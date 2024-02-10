@@ -70,7 +70,7 @@ document.getElementById('previewImage').addEventListener('click', function() {
 
 function readURL(input) {
     if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        let reader = new FileReader();
 
         reader.onload = function (e) {
             document.querySelector('.addPhotoModal img').src = e.target.result;
