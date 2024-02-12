@@ -87,21 +87,25 @@ function readURL(input) {
 }
 
 function validateForm() {
+    console.log('La fonction validateForm a été appelée');
     const title = document.getElementById('imageTitle').value; // Obtenir la valeur du titre de l'image
     const category = document.getElementById('category').value; // Obtenir la valeur de la catégorie
     const fileInput = document.querySelector('input[type="file"]'); // Sélectionner l'input de type "file"
-    const validateButton = document.getElementById('validateButton');
+    const validationMessageElement = document.getElementById('validationMessage');
 
-    if (title && category && fileInput.files.length >  0) { // Si le titre, la catégorie et le fichier de l'image existent
-        validateButton.disabled = false; // Activer le bouton de validation
-        validateButton.style.backgroundColor = '#1D6154'; // Changer la couleur de fond du bouton de validation en vert
+    if (title && category && fileInput.files.length > 0) { // Si le titre, la catégorie et le fichier de l'image existent
+        document.getElementById('validateButton').disabled = false; // Activer le bouton de validation
+        document.getElementById('validateButton').style.backgroundColor = '#1D6154'; // Changer la couleur de fond du bouton de validation en vert
+        
+
     } else { // Sinon
-        validateButton.disabled = true; // Désactiver le bouton de validation
-        validateButton.style.backgroundColor = 'darkgray';
-        validateButton.style.color = 'white'; // Changer la couleur de fond du bouton de validation en gris
+        document.getElementById('validateButton').disabled = true; // Désactiver le bouton de validation
+        document.getElementById('validateButton').style.backgroundColor = 'darkgray';
+        document.getElementById('validateButton').style.color = 'white'; // Changer la couleur de fond du bouton de validation en gris
+        
+        
     }
 }
-
 
 // Sélectionnez le bouton "Valider"
 const validateButton = document.getElementById('validateButton');
