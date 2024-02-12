@@ -635,4 +635,7 @@ form:valid #validateButton {
 	top: 45px;
     display: block;
     width: 50%; /* Ajustez cette valeur selon vos besoins */
+	background-color: darkgray;
+    color: white;
 }
+
