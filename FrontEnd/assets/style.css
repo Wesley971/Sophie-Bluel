@@ -537,15 +537,43 @@ margin: auto;
 	font-family: 'Work Sans';
 	border-radius: 5px;
 	position: relative;
+	bottom: 10px;
 }
 .previewBox img {
     max-width: 70%; /* L'image s'adapte à la largeur de la boîte */
     cursor: pointer; /* Le curseur change en main lorsque l'utilisateur passe la souris sur l'image */
 }
 
+
+
 .previewBox input[type="file"] {
-    display: none; /* Cache le input de type file */
+    opacity:   0; /* Cache l'entrée de type file */
+    position: absolute;
+    top:   0;
+    left:   0;
+    width:   100%;
+    height:   100%;
+    cursor: pointer;
 }
+
+.custom-file-upload {
+    cursor: pointer;
+    display: inline-block;
+    padding:   10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size:   16px;
+}
+
+.custom-file-upload h3 {
+    margin:   0;
+    padding:   0;
+}
+
+
+
 
 .previewBox label {
 	color: #306685;
@@ -577,6 +605,17 @@ margin: auto;
 
 /* formulaire */
 
+#addPhotoForm{
+	border-bottom: grey solid 1px;
+	margin: 20px;
+	color: black;
+    font-weight: 400;
+    width: 98%;
+	font-family: 'Work Sans';
+	color: #3D3D3D;
+	position: relative;
+	top: 0px;
+}
 
 input[type="text"], select {
 	width: 100%;
@@ -591,26 +630,15 @@ input[type="text"], select {
 	color: #444444;
 }
 
-.firstForm, .secondForm {
-    margin: 20px;
-	color: black;
-    font-weight: 400;
-    width: 90%;
-	font-family: 'Work Sans';
-	color: #3D3D3D;
-	position: relative;
-	top: 25px;
-
-	 
-}
 .formLabel{
 	display: block;
 	font-size: 18px;
-	margin-bottom: -6px;
+	margin-top: 30px;
 }
 
 #category {
     border-right: white 30px solid ;
+	margin-bottom: -25px;
 
 }
 
@@ -621,21 +649,23 @@ input[type="text"], select {
 
 /* Boutton pour valider */
 
-form:invalid #validateButton {
+form:invalid #submitPhotoButton {
     background-color: grey;
 }
 
-form:valid #validateButton {
-    background-color: green;
+form:valid #submitPhotoButton {
+    background-color:#1D6154;
     pointer-events: auto;
     cursor: pointer;
 }
-#validateButton {
+#submitPhotoButton {
 	position: relative;
-	top: 45px;
+	top: 110px;
+	padding: 10px;
     display: block;
     width: 50%; /* Ajustez cette valeur selon vos besoins */
 	background-color: darkgray;
     color: white;
+	border: none;
 }
 

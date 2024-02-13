@@ -91,53 +91,62 @@ function validateForm() {
     const title = document.getElementById('imageTitle').value; // Obtenir la valeur du titre de l'image
     const category = document.getElementById('category').value; // Obtenir la valeur de la catégorie
     const fileInput = document.querySelector('input[type="file"]'); // Sélectionner l'input de type "file"
-    const validationMessageElement = document.getElementById('validationMessage');
+    
 
     if (title && category && fileInput.files.length > 0) { // Si le titre, la catégorie et le fichier de l'image existent
-        document.getElementById('validateButton').disabled = false; // Activer le bouton de validation
-        document.getElementById('validateButton').style.backgroundColor = '#1D6154'; // Changer la couleur de fond du bouton de validation en vert
+        document.getElementById('.submitPhotoButton').disabled = false; // Activer le bouton de validation
+        document.getElementById('.submitPhotoButton').style.backgroundColor = '#1D6154'; // Changer la couleur de fond du bouton de validation en vert
         
 
     } else { // Sinon
-        document.getElementById('validateButton').disabled = true; // Désactiver le bouton de validation
-        document.getElementById('validateButton').style.backgroundColor = 'darkgray';
-        document.getElementById('validateButton').style.color = 'white'; // Changer la couleur de fond du bouton de validation en gris
+    
+        document.getElementById('.submitPhotoButton').style.color = 'white'; // Changer la couleur de fond du bouton de validation en gris
         
         
     }
 }
 
-// Sélectionnez le bouton "Valider"
-const validateButton = document.getElementById('validateButton');
+// Sélectionner le formulaire d'ajout de photo
+const addPhotoForm = document.getElementById('addPhotoForm');
 
-// Ajoutez un écouteur d'événements pour le clic sur ce bouton
-validateButton.addEventListener('click', function() {
-    // Vérifier si le bouton "Valider" est actif
-    if (!this.disabled) {
-        // Si le bouton "Valider" est actif, envoyer l'image à l'API
-        const title = document.getElementById('imageTitle').value;
-        const category = document.getElementById('category').value;
-        const fileInput = document.querySelector('input[type="file"]');
-
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('category', category);
-        formData.append('image', fileInput.files[0], fileInput.files[0].name);
-
-        fetch('http://localhost:5678/api/works', {
-            method: 'POST',
-            body: formData,
-            headers: {'Authorization': 'Bearer ' + sessionStorage.getItem("token")}
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Succès:', data);
-        })
-        .catch((error) => {
-            console.error('Erreur:', error);
-        });
-    }
+// Ajouter un écouteur d'événements pour la soumission du formulaire
+addPhotoForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêcher le comportement par défaut du formulaire
+    
+    // Récupérer les données du formulaire
+    const title = document.getElementById('imageTitle').value;
+    const category = document.getElementById('category').value;
+    const fileInput = document.getElementById('fileInput').files[0];
+    
+    // Créer un objet FormData pour envoyer les données du formulaire
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('image', fileInput, fileInput.name);
+    
+    // Envoyer les données à l'API via une requête fetch
+    fetch('http://localhost:5678/api/works', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erreur lors de l\'envoi du formulaire');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Succès:', data);
+        // Vous pouvez ajouter ici le code pour rafraîchir la galerie de photos ou effectuer d'autres actions après l'envoi réussi du formulaire
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+    });
 });
+
 
 
 
